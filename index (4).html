@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.S ELECTRICAL - Professional Appliance Repair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #191c1e;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* ============ TOP NAV BAR ============ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(6px);
+            background-color: rgba(247, 249, 251, 0.9);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #047857;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            font-size: 16px;
+            color: #434655;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:first-child {
+            color: #047857;
+            font-weight: 700;
+            border-bottom: 2px solid #047857;
+            padding-bottom: 2px;
+        }
+
+        .navbar-links a:hover {
+            color: #047857;
+        }
+
+        .btn-book {
+            background-color: #059669;
+            color: white;
+            padding: 10.5px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s;
+        }
+
+        .btn-book:hover {
+            background-color: #047857;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            background: linear-gradient(90deg, rgb(247, 249, 251) 0%, rgb(255, 255, 255) 100%);
+            padding: 96px 64px 128px;
+            margin-top: 80px;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .hero-content h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #047857;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.17;
+            margin-bottom: 24px;
+            letter-spacing: -0.96px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #434655;
+            line-height: 1.56;
+            max-width: 512px;
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .btn-primary {
+            background-color: #059669;
+            color: white;
+            padding: 12.5px 32px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #047857;
+        }
+
+        .btn-secondary {
+            background-color: #fed01b;
+            color: #231b00;
+            padding: 12.5px 33px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e6b600;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 16px;
+            color: #434655;
+        }
+
+        .feature-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 10px 25px rgba(4, 120, 87, 0.05);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 12.5px rgba(4, 120, 87, 0.05);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            z-index: 10;
+        }
+
+        .floating-card-icon {
+            width: 40px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .floating-card-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-card-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            margin-bottom: 4px;
+        }
+
+        .floating-card-content p {
+            font-size: 14px;
+            color: #434655;
+        }
+
+        /* ============ SERVICES SECTION ============ */
+        .services {
+            background-color: white;
+            padding: 128px 64px;
+        }
+
+        .services-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .services-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.48px;
+        }
+
+        .services-header p {
+            font-size: 18px;
+            color: #434655;
+            line-height: 1.56;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: #f7f9fb;
+            border: 1px solid rgba(195, 198, 215, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0px 10px 12.5px rgba(4, 120, 87, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 15px 20px rgba(4, 120, 87, 0.1);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(4, 120, 87, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .service-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.33;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #434655;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .service-link {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: #047857;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+        }
+
+        /* ============ FORM SECTION ============ */
+        .form-section {
+            position: relative;
+            background-color: #f7f9fb;
+            padding: 128px 64px;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 50%;
+            background-color: rgba(4, 120, 87, 0.05);
+            filter: blur(32px);
+            border-radius: 0 0 9999px 9999px;
+            z-index: 1;
+        }
+
+        .form-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f7f9fb;
+            z-index: 2;
+        }
+
+        .form-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 48px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .form-intro h2 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.17;
+            margin-bottom: 24px;
+            letter-spacing: -0.96px;
+        }
+
+        .form-intro p {
+            font-size: 18px;
+            color: #434655;
+            line-height: 1.56;
+            margin-bottom: 32px;
+        }
+
+        .form-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding-top: 32px;
+        }
+
+        .form-step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background-color: #047857;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #434655;
+        }
+
+        .form-card {
+            background-color: white;
+            border: 1px solid rgba(195, 198, 215, 0.2);
+            border-radius: 16px;
+            padding: 41px;
+            box-shadow: 0px 10px 12.5px rgba(4, 120, 87, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            margin-bottom: 9.5px;
+            display: block;
+            color: #191c1e;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 15px 13px;
+            border: 1px solid rgba(195, 198, 215, 0.5);
+            border-radius: 8px;
+            background-color: #f7f9fb;
+            font-size: 16px;
+            font-family: inherit;
+            color: #191c1e;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            background-color: #fff;
+            border-color: #047857;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            padding: 13px;
+        }
+
+        .appliance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .appliance-option {
+            padding: 13px;
+            border: 1px solid rgba(195, 198, 215, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #f7f9fb;
+            font-size: 14px;
+            color: #191c1e;
+        }
+
+        .appliance-option:hover {
+            border-color: #047857;
+            background-color: #f0f9f6;
+        }
+
+        .appliance-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .appliance-option input[type="checkbox"]:checked + label {
+            color: white;
+            background-color: #047857;
+        }
+
+        .appliance-option.selected {
+            border-color: #047857;
+            background-color: #047857;
+            color: white;
+        }
+
+        .photo-upload {
+            border: 1px solid rgba(195, 198, 215, 0.5);
+            border-radius: 8px;
+            padding: 9px 17px;
+            background-color: #f7f9fb;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .photo-upload:hover {
+            border-color: #047857;
+            background-color: #f0f9f6;
+        }
+
+        .photo-upload svg {
+            width: 20px;
+            height: 18px;
+        }
+
+        .photo-upload span {
+            font-size: 14px;
+            color: #434655;
+        }
+
+        .form-input[type="file"] {
+            display: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #059669;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.9px;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #047857;
+        }
+
+        .btn-submit:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background-color: #e0e3e5;
+            border-top: 1px solid #c3c6d7;
+            padding: 33px 64px 32px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-section p {
+            font-size: 16px;
+            color: #434655;
+            margin-bottom: 16px;
+        }
+
+        .contact-card {
+            background-color: rgba(4, 120, 87, 0.05);
+            border: 1px solid rgba(4, 120, 87, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .contact-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #047857;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 8px;
+        }
+
+        .contact-card-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-separator {
+            border-top: 1px solid rgba(4, 120, 87, 0.2);
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            font-size: 16px;
+            color: #434655;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #047857;
+        }
+
+        .footer-emergency {
+            color: #047857;
+            font-weight: 700;
+        }
+
+        /* ============ ALERTS ============ */
+        .alert {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .alert.success {
+            background-color: #d1fae5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+        }
+
+        .alert.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .navbar-container,
+            .hero-container,
+            .services-container,
+            .form-container,
+            .footer-container {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .hero,
+            .services,
+            .form-section {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .appliance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 0 16px;
+            }
+
+            .navbar-links {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero {
+                padding: 48px 16px 64px;
+                margin-top: 80px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .services {
+                padding: 64px 16px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 64px 16px;
+            }
+
+            .form-intro h2 {
+                font-size: 32px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .appliance-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .appliance-option {
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            .footer {
+                padding: 24px 16px;
+            }
+
+            .footer-container {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-logo">H.S ELECTRICAL</div>
+        <div class="navbar-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="btn-book">Book a Service</button>
+    </div>
+</nav>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero" id="home">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h3>Local Electrical & Appliance Repair</h3>
+            <h1>When Something Stops Working, We Get It Working Again.</h1>
+            <p>From ACs and fans to motors, pumps, microwave ovens, mixies, grinders, induction stoves, and more — get reliable electrical and appliance repair services at your doorstep.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Book a Service</button>
+                <button class="btn-secondary">Call Us Today</button>
+            </div>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1C5.03 1 1 5.03 1 10s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm-2 13l-3-3 1.4-1.4L8 11.2l4.6-4.6L14 7l-6 6z" fill="#047857"/>
+                    </svg>
+                    <span>Reliable Service</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1C5.03 1 1 5.03 1 10s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm-2 13l-3-3 1.4-1.4L8 11.2l4.6-4.6L14 7l-6 6z" fill="#047857"/>
+                    </svg>
+                    <span>Skilled Technicians</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1C5.03 1 1 5.03 1 10s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm-2 13l-3-3 1.4-1.4L8 11.2l4.6-4.6L14 7l-6 6z" fill="#047857"/>
+                    </svg>
+                    <span>Convenient Doorstep Repairs</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://www.figma.com/api/mcp/asset/8b14c3b6-3a59-4d84-a820-366de2d3a10f.png" alt="Professional electrician repairing ceiling fan">
+            <div class="floating-card">
+                <div class="floating-card-icon">
+                    <svg viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="25" r="15" fill="#047857" opacity="0.1"/>
+                    </svg>
+                </div>
+                <div class="floating-card-content">
+                    <h4>Quick & Reliable</h4>
+                    <p>Service Guaranteed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SERVICES SECTION ============ -->
+<section class="services" id="services">
+    <div class="services-container">
+        <div class="services-header">
+            <h2>What Can We Repair?</h2>
+            <p>Expert diagnostics and repair for all your essential home and commercial appliances.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" fill="#047857"/>
+                    </svg>
+                </div>
+                <h3>AC Repair</h3>
+                <p>Comprehensive servicing, gas refilling, and repair for window and split air conditioners.</p>
+                <a href="#form" class="service-link">Get Service →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" fill="#047857"/>
+                    </svg>
+                </div>
+                <h3>Fan Repair</h3>
+                <p>Ceiling, pedestal, and exhaust fan repairs including winding and capacitor replacement.</p>
+                <a href="#form" class="service-link">Get Service →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" fill="#047857"/>
+                    </svg>
+                </div>
+                <h3>Motor & Pump</h3>
+                <p>Domestic water pump and industrial motor troubleshooting and overhauling.</p>
+                <a href="#form" class="service-link">Get Service →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FORM SECTION ============ -->
+<section class="form-section" id="form">
+    <div class="form-container">
+        <div class="form-intro">
+            <h2>Need a Repair?<br>Let's Get It Sorted.</h2>
+            <p>Fill out the form with your appliance details, and our technical team will be in touch shortly to confirm your appointment.</p>
+
+            <div class="form-steps">
+                <div class="form-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Tell Us the Problem</h4>
+                        <p>Select your appliance and describe the issue.</p>
+                    </div>
+                </div>
+                <div class="form-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>We Contact You</h4>
+                        <p>We'll call to schedule a convenient time.</p>
+                    </div>
+                </div>
+                <div class="form-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Get It Fixed</h4>
+                        <p>Our technician arrives and resolves the issue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <form id="serviceForm">
+                <!-- Name & Phone Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 000-0000" required>
+                    </div>
+                </div>
+
+                <!-- Appliance Selection -->
+                <div class="form-group">
+                    <label class="form-label">Select Appliance(s) to Repair</label>
+                    <div class="appliance-grid">
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Ceiling Fan">
+                            <span>Ceiling Fan</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Table Fan">
+                            <span>Table Fan</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Geyser Water Heater">
+                            <span>Geyser Water Heater</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Motors">
+                            <span>Motors</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Pedestal Fan">
+                            <span>Pedestal Fan</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Iron Box">
+                            <span>Iron Box</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Mixers">
+                            <span>Mixers</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Grinder">
+                            <span>Grinder</span>
+                        </label>
+                        <label class="appliance-option">
+                            <input type="checkbox" name="appliance" value="Jar">
+                            <span>Jar</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Describe Problem & Photo -->
+                <div class="form-group">
+                    <label for="problem" class="form-label">Describe the Problem</label>
+                    <textarea id="problem" name="problem" class="form-textarea" placeholder="Briefly describe what's wrong..."></textarea>
+                    <label class="photo-upload">
+                        <svg viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1h18v16H1z" stroke="#434655" stroke-width="1"/>
+                        </svg>
+                        <span>Take a Photo</span>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                    </label>
+                </div>
+
+                <!-- Preferred Time -->
+                <div class="form-group">
+                    <label for="time" class="form-label">Preferred Time</label>
+                    <select id="time" name="time" class="form-select" required>
+                        <option value="">Select time</option>
+                        <option value="Morning (6 AM - 12 PM)">Morning (6 AM - 12 PM)</option>
+                        <option value="Afternoon (12 PM - 5 PM)">Afternoon (12 PM - 5 PM)</option>
+                        <option value="Evening (5 PM - 9 PM)">Evening (5 PM - 9 PM)</option>
+                        <option value="Flexible (Anytime)">Flexible (Anytime)</option>
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label for="date" class="form-label">Preferred Date</label>
+                    <input type="date" id="date" name="date" class="form-input" required>
+                </div>
+
+                <!-- Estimated Amount -->
+                <div class="form-group">
+                    <label for="amount" class="form-label">Estimated Service Amount</label>
+                    <div style="position: relative;">
+                        <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #434655; font-size: 16px;">₹</span>
+                        <input type="number" id="amount" name="amount" class="form-input" placeholder="0.00" style="padding-left: 32px;" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Request a Service</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>H.S ELECTRICAL</h3>
+            <p>© 2024 H.S ELECTRICAL. Professional Appliance Care.</p>
+            
+            <div class="contact-card">
+                <div class="contact-card-title">Senior Electrician</div>
+                <div class="contact-card-name">Munna Bhai : 9841241143</div>
+                
+                <div class="contact-separator">
+                    <div class="contact-card-title" style="margin-top: 8px;">Junior Electrician</div>
+                    <div class="contact-card-name">Taufiq : 7200478755</div>
+                </div>
+                
+                <div class="contact-separator">
+                    <div class="contact-card-title" style="margin-top: 8px;">Shop Hours</div>
+                    <div class="contact-card-name">9:30 AM - 8:30 PM</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4 style="font-size: 16px; font-weight: 400; color: #191c1e; margin-bottom: 16px;">Legal</h4>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4 style="font-size: 16px; font-weight: 400; color: #191c1e; margin-bottom: 16px;">Support</h4>
+            <div class="footer-links">
+                <a href="#">FAQ</a>
+                <a href="#" class="footer-emergency">Emergency Support</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Alerts Container -->
+<div id="alerts"></div>
+
+<script>
+    // AppScript URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx61wc-xHIAmQbcNSoJ_XO2UIr30E6-nLOVGNJ21SquUjWMLU1tF1hUoMIaz7GaLO-NNA/exec';
+
+    // Set minimum date to today
+    document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+    // Handle appliance selection styling
+    document.querySelectorAll('.appliance-option input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            this.parentElement.classList.toggle('selected');
+        });
+    });
+
+    // Handle photo upload display
+    document.getElementById('photo').addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            this.previousElementSibling.textContent = e.target.files[0].name;
+        }
+    });
+
+    // Show alert message
+    function showAlert(message, type = 'success') {
+        const alertsContainer = document.getElementById('alerts');
+        const alert = document.createElement('div');
+        alert.className = `alert ${type}`;
+        alert.textContent = message;
+        alertsContainer.appendChild(alert);
+        
+        setTimeout(() => {
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 300);
+        }, 4000);
+    }
+
+    // Form submission
+    document.getElementById('serviceForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const problem = document.getElementById('problem').value.trim();
+        const time = document.getElementById('time').value;
+        const date = document.getElementById('date').value;
+        const amount = document.getElementById('amount').value;
+
+        // Get selected appliances
+        const appliances = Array.from(document.querySelectorAll('.appliance-option input[type="checkbox"]:checked'))
+            .map(cb => cb.value)
+            .join(', ');
+
+        // Get photo (if any)
+        const photoFile = document.getElementById('photo').files[0];
+        const photo = photoFile ? photoFile.name : '';
+
+        // Validate required fields
+        if (!name || !phone || !appliances || !time || !date) {
+            showAlert('Please fill in all required fields', 'error');
+            return;
+        }
+
+        // Build URL with query parameters
+        const params = new URLSearchParams({
+            name: name,
+            phone: phone,
+            appliance: appliances,
+            problem: problem,
+            photo: photo,
+            time: time,
+            date: date,
+            amount: amount
+        });
+
+        const url = SCRIPT_URL + '?' + params.toString();
+
+        // Disable button
+        const submitBtn = this.querySelector('.btn-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        // Fetch with GET and no-cors mode
+        fetch(url, {
+            method: 'GET',
+            mode: 'no-cors'
+        })
+        .then(() => {
+            // Success - don't check response since it's opaque
+            showAlert('Service request submitted successfully! We will contact you soon.', 'success');
+            document.getElementById('serviceForm').reset();
+            
+            // Reset appliance styling
+            document.querySelectorAll('.appliance-option').forEach(el => el.classList.remove('selected'));
+            
+            // Reset submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request a Service';
+        })
+        .catch(() => {
+            // Error
+            showAlert('Error submitting form. Please try again.', 'error');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request a Service';
+        });
+    });
+
+    // Smooth scroll for navbar links
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
